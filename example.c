@@ -1,14 +1,25 @@
 
 #include <stdio.h>
 
+void swap(int *x, int *y)
+{
+    int temp;
+
+    temp = *x;
+    *x = *y;
+    *y = temp;
+}
+
 int main(void)
 {
-    int i = 300;
+    int a = 3;
+    int b = 5;
 
-    int *pi = &i;
-    char *pc = (char *)&i;
+    printf("교환 전: a = %d, b = %d\n", a, b);
 
-    printf("%i, %i, %i\n", i, *pi, *pc);
+    swap(&a, &b);
+
+    printf("교환 후: a = %d, b = %d\n", a, b);
 
     return 0;
 }
