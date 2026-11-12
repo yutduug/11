@@ -1,25 +1,35 @@
 
 #include <stdio.h>
 
-void swap(int *x, int *y)
-{
-    int temp;
-
-    temp = *x;
-    *x = *y;
-    *y = temp;
-}
-
 int main(void)
 {
-    int a = 3;
-    int b = 5;
+    int i;
+    int grade[5];
+    int *ptr = grade;
+    int sum = 0;
+    double average;
 
-    printf("교환 전: a = %d, b = %d\n", a, b);
+    // 성적 입력
+    for (i = 0; i < 5; i++)
+    {
+        printf("grade[%d] = ", i);
+        scanf("%d", &grade[i]);
+    }
 
-    swap(&a, &b);
+    // 포인터를 이용한 배열 접근 및 합계 계산
+    printf("\n성적 출력:\n");
 
-    printf("교환 후: a = %d, b = %d\n", a, b);
+    for (i = 0; i < 5; i++)
+    {
+        printf("grade[%d] = %d\n", i, *(ptr + i));
+        sum += *(ptr + i);
+    }
+
+    // 평균 계산
+    average = sum / 5.0;
+
+    printf("\n합계: %d\n", sum);
+    printf("평균: %.2f\n", average);
 
     return 0;
 }
